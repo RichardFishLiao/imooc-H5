@@ -1,0 +1,469 @@
+
+
+.header{
+    background-color:#f7f7f7;
+}
+.header_wrap{
+    height:80px;
+    /* 原本这个height是放在header里面的,但是他应该要放在wrap里面,
+    因为absolute是针对父元素的,如果父元素没有高度,
+    那么后面的top就没有用 */
+    width: 1200px;
+    position: relative;
+    margin: 0 auto;
+    /* 这个是块元素水平居中 */
+}
+.header_logo{
+    width:150px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 20px;
+    color: #07111b;
+    text-indent:50px;
+    background: url('../img/logo.png') left center no-repeat;
+    background-size: 38px 38px;
+    position: absolute;
+    top: 50%;
+    margin-top: -19px;
+    /* 块元素垂直居中于父元素:
+    首先相对于父元素定位,然后top50%,最后margin-top:父元素高度的一半 */
+    left:20px;
+
+}
+.header_nav{
+    position: absolute;
+    right: 20px;
+    height: 38px;
+    top: 50%;
+    margin-top: -19px;
+    /* top还有margin这两步跟logo同样的属性,抄过来就行了 */
+}
+.header_nav-item{
+    color:#292f35;
+    font-size: 14px;
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    /* 文字垂直居中的方法就是height和line-height是相同的 */
+
+    float: left;
+    margin-left: 40px;
+    position: relative;
+
+}
+.header_nav-item:hover{
+    color: #f01400;
+}
+
+.header_nav-item_custon_button{
+    background: #000;
+    color: #f4f4f5;
+    text-align: center;
+    width: 90px;
+    border-radius: 3px;
+    
+}
+.header_nav-item_status_active{
+    color: #f01400;
+}
+.header_nav-item_status_active::after{
+    content:'';
+    display: block;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    /* 这里用absolute的话他的父元素一定要relative,这叫允许子元素相对于它定位
+     */
+    background-color: #f01400;
+    left: 0;
+    bottom: 0;
+}
+
+/* 第一屏 */
+
+.screen-1{
+    height: 800px;
+    background-color: #e7e7e7;
+    background: url(../img/bg-screen-1.png) no-repeat center;
+    background-size:cover;
+    /* 页面缩小的时候背景图依然能够全覆盖 */
+    position: relative;
+    overflow:hidden;
+}
+.screen-1_heading{
+    font-weight: normal;
+    padding: 0;
+    margin:0;
+    font-size: 46px;
+    color: #4d555d;
+    text-align: center;
+    padding-top: 152px;
+
+
+}
+.screen-1_heading b{
+    font-weight: normal;
+    color: #f01400;
+}
+.screen-1_phone{
+    width:1375px;
+    height: 305px;
+    background: url(../img/screen-1-phone.png) no-repeat center;
+    position: absolute;
+    left: 50%;
+    margin-left: -687px;
+    /* 水平居中用-间距也是可以的 */
+    bottom: 180px;
+
+    z-index:2;
+}
+.screen-1_shadow{
+    width:1233px;
+    height: 305px;
+    background: url(../img/screen-1-shadow.png) no-repeat center;
+    position: absolute;
+    left: 50%;
+    margin-left: -616px;
+    /* 水平居中用-间距也是可以的  这种方法叫负边距居中法*/
+    bottom: 30px;
+    z-index:1;
+    opacity: 0.8;
+    /* 调整透明度,更舒服 */
+}
+
+/* 第二屏 */
+.screen-2{
+    background-color: #fafafa;
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+
+}
+.screen-2_heading{
+    font-weight: normal;
+    padding: 0;
+    margin:0;
+    font-size: 46px;
+    line-height: 46px;
+    color: #f01400;
+    text-align: center;
+    padding-top: 152px;
+}
+.screen-2_subheading{
+    font-weight: normal;
+    padding: 0;
+    margin:0;
+    font-size: 14px;
+    color:#2c3137;
+    text-align: center;
+    padding-top: 25px;
+    line-height: 28px;
+}
+
+.screen-2_phone{
+    width:928px;
+    height: 873px;
+    background: url(../img/bg-screen-2.png) no-repeat center;
+    position: absolute;
+    left: 50%;
+    margin-left: -464px;
+    /* 水平居中用-间距也是可以的 */
+    bottom: -345px;
+
+}
+.screen-2_point{
+    width: 108px;
+    height: 22px;
+    padding-right: 112px;
+    font-size: 22px;
+    line-height: 22px;
+    color: #4d555d;
+    position: absolute;
+    background: url(../img/icon-point-right.png) no-repeat right;
+}
+.screen-2_point_custom_right{
+    padding: 0 0 0 112px;
+    background: url(../img/icon-point-left.png) no-repeat left;
+}
+.screen-2_point_i_1{
+    top:150px;
+    left: -164px;
+}
+.screen-2_point_i_2{
+    top:30px;
+    right: 130px;
+}
+
+.screen-2_point_i_3{
+    top: 330px;
+    right: 30px;
+}
+/* 把三个point嵌入phone的div 里面,如果不嵌套而是分离的话,那么当页面的宽度不一样的时候就会分离 */
+/* 第三屏 */
+.screen-3{
+    background-color: #a71316;
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+
+}
+.screen-3_wrap{
+    width:1200px;
+    position:relative;
+    height: auto;
+    margin: 0 auto;
+}
+.screen-3_heading{
+    font-size: 46px;
+    line-height: 46px;
+    color: #ffffff;
+    text-align: left;
+    padding-top: 152px;
+}
+.screen-3_subheading{
+    font-size: 14px;
+    color:#ffffff;
+    text-align: left;
+    padding-top: 25px;
+    line-height: 28px;
+}
+
+.screen-3_phone{
+    width:729px;
+    height: 873px;
+    background: url(../img/bg-screen-3.png) no-repeat center top;
+    position: absolute;
+    right:0;
+    top: 195px;
+    z-index:2;
+
+}
+.screen-3_features{
+    position: absolute;
+    top:395px;
+    left:0; /*对齐wrap */
+    width: 320px;
+    height: 280px;
+}
+.screen-3_features_item{
+    width: 138px;
+    height: 118px;
+    border: 1px solid #cb7173;
+    margin: 0 20px 20px 0;
+    float: left;
+    border-radius: 3px;
+    text-align: center;
+    color:#ffffff;
+
+}
+.screen-3_features_item_number{
+    padding:28px 0 8px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 36px; 
+    /* 首先设定一个区域height是36px,然后行高就是height的高度,
+    保证只有一行,然后font-size再设定为height填充进去 */
+}
+.screen-3_features_item_desc{
+    height: 14px;
+    line-height: 14px;
+    font-size: 14px; 
+    
+}
+/* 第四屏 */
+.screen-4{
+    background-color: #ffffff;
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+
+}
+.screen-4_wrap{
+    width:1200px;
+    position:relative;
+    height: auto;
+    margin: 0 auto;
+}
+.screen-4_heading{
+    font-size: 46px;
+    line-height: 46px;
+    color: #f01400;
+    text-align: center;
+    padding-top: 152px;
+}
+.screen-4_subheading{
+    font-size: 14px;
+    color:#464a4f;
+    text-align: center;
+    padding-top: 29px;
+    line-height: 28px;
+}
+.screen-4_type{
+    width: 1260px;
+    height: 270px;
+    text-align: center;
+    padding-top: 29px;
+    line-height: 28px;
+    position: absolute;
+    margin-left: 30px;
+}
+.screen-4_type_item{
+    width: 220px;
+    margin-right: 90px;
+    height:270px;
+    position: relative;
+    text-align: center; 
+    background-size: cover;
+    display: inline-block;
+}
+.screen-4_type_item_color{
+    width: 100%;
+    height: 14px;
+    line-height: 14px;
+    font-size: 14px;
+    color: #2c3238;
+    position: absolute;
+    bottom: -44px;
+}
+.screen-4_type_item_storage{
+    width: 100%;
+    height: 12px;
+    line-height: 12px;
+    font-size: 12px;
+    color: #a4a9ae;
+    position: absolute;
+    bottom: -66px;
+}
+.screen-4_type_item_i-1{
+    background: url(../img/phone-1.png) no-repeat center;
+}
+.screen-4_type_item_i-2{
+    background: url(../img/phone-2.png) no-repeat center;
+}
+.screen-4_type_item_i-3{
+    background: url(../img/phone-3.png) no-repeat center;
+}
+.screen-4_type_item_i-4{
+    background: url(../img/phone-4.png) no-repeat center;
+}
+/* 第五屏 */
+.screen-5{
+    height: 800px;
+    background-color: #d9dde1;
+    /* 页面缩小的时候背景图依然能够全覆盖 */
+    position: relative;
+    overflow:hidden;
+}
+.screen-5_bg{
+    width: 1920px;
+    height: 433px;
+    background-size: cover;
+    /* cover是强制性让宽和高都能碰到边框
+    而contain是让有其中一个能碰到边框 */
+    position: absolute;
+    left: 50%;
+    margin-left:-960px;
+    bottom: -100px;
+    background: url(../img/bg-screen-5.png) no-repeat center top; /*最后一个参数向谁对齐 */
+}
+.screen-5_heading{
+    font-size: 46px;
+    line-height: 46px;
+    color: #f01400;
+    text-align: center;
+    padding-top: 130px;
+}
+.screen-5_subheading{
+    font-size: 14px;
+    color:#2c3137;
+    text-align: center;
+    padding-top: 25px;
+    line-height: 28px;
+}
+/* 第六屏 */
+.screen-6{
+    /* height: 320px;  我们打算用padding居中法*/
+    height:80px;
+    padding: 120px 0;
+    /* 让这个screen-6的高度跟button相同
+    ,然后我们其余的高度用padding来补充 */
+    overflow: hidden;
+    position: relative;
+    background: #2b333b url('../img/bg-screen-buy.png') no-repeat center;
+    text-align:center;
+    border-radius: 3px;
+     transition:all .5s; /*动画效果,延时到0.5秒显示 */
+
+}
+.screen-6_button:hover{
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    /* 参数解释:   横轴 纵轴  范围 颜色 */
+}
+.screen-6_button{
+    height: 80px;
+    width: 240px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 24px;
+    color: #fff;
+    background-color: #f01414;
+    display:inline-block;
+    /* inline-block既能够享受height还有width,
+    也可以享受文案像textalign等文案属性,
+     在这里用display:inline-block是相应上面的text-align*/
+}
+.footer{
+    height: 80px;
+    line-height: 80px;
+    /* 如果想让蚊子垂直居中的话只要height和line-height一样就行 */
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    background-color: #07111b;
+}
+
+
+.outline{
+    position: fixed;
+    padding: 5px 10px;
+    bottom: 120px;
+    right: 0;
+    z-index:3;
+    background-color: #fff;
+    box-shadow:0 4px 12px rgba(0,0,0,0.5);
+}
+.outline_item{
+    display:block;
+    height: 30px;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0;
+    background-color: #fff;
+    margin-top: 5px;
+    border-top: 1px solid #eee;
+    color: #93999f;
+
+}
+.outline_item:first-child{
+    border:none;
+}
+.outline_item_active{
+    color: #f01400;
+}
+
+.header{
+    transition: all 1s;
+}
+.header_status_back{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3
+}
+.header_status_back .header_logo,
+.header_status_back .header_nav-item{
+    color:#fff;
+
+}
